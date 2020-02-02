@@ -15,5 +15,5 @@ input = number_of_toes[0]
 # 3 - Multiplying input by weight
 pred = neural_network(input, weight)
 
-# Depositing the prediction
+#4 Depositing the prediction
 print(pred)
