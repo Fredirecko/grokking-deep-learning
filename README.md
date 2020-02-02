@@ -13,3 +13,7 @@ Data->Machine->Prediction
 Datapoint->Weight->Prediction
 Input->Weight->Output
 
+"The interface for a neural network is simple. It accepts an input variable as information and a weight variable as knowledge and outputs a prediction.  Every neural network you'll ever see works this way." - pg. 26
+
+
+
