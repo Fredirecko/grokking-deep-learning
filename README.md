@@ -21,6 +21,24 @@ Elementwise addition sums two vectors. Elementwise multiplication multiplies two
 
 ## Chapter 4 - Gradient Descent
 
+Predict -> Compare -> Learn
+
+One of the most important steps in learning how well your prediction is coming up with a good way to evaluate error.
+
+In deep learning one of the ways to measure error is: mean squared error.  (error is always positive)
+
+Once you have a way of evaluating error the next step, Learn, uses the error evaluation to adjust the weights accordingly. Gradient descent is a popular means of "learning"/adjust the weights.  Gradient descent produces a number that is applied to the weight and tells the weight how much higher or lower it should be thus reducing the error. 
+
+Mean squared error does inflate big errors and reduces small errors but this can be used to enhance learning.
+
+Hot and cold learning means moving the the weights in both directions and seeing which direction reduces the error. You repeat until you get error == 0.
+
+
+
+
+
+
+
 
 
 
