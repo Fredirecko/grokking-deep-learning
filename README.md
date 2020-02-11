@@ -31,7 +31,7 @@ Once you have a way of evaluating error the next step, Learn, uses the error eva
 
 Mean squared error does inflate big errors and reduces small errors but this can be used to enhance learning.
 
-Hot and cold learning means moving the the weights in both directions and seeing which direction reduces the error. You repeat until you get error == 0.
+Hot and cold learning means moving the the weights in both directions and seeing which direction reduces the error. You repeat until you get error == 0. One problem with hot/cold learning is it requires multiple predictions to make a single weight update.  The second problem is that the step amount is arbitrary which means you may never reach the correct weight value.
 
 
 
