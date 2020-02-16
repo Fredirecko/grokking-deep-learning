@@ -33,6 +33,13 @@ Mean squared error does inflate big errors and reduces small errors but this can
 
 Hot and cold learning means moving the the weights in both directions and seeing which direction reduces the error. You repeat until you get error == 0. One problem with hot/cold learning is it requires multiple predictions to make a single weight update.  The second problem is that the step amount is arbitrary which means you may never reach the correct weight value.
 
+"Alpha reduces the weight so it doesn't overshoot." 
+
+"Derivatives are the sensitivity between two variables." 
+
+"It's the relationship between two variables in a function so you can know how much one changes when you change the other."
+
+
 
 
 

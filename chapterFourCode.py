@@ -52,7 +52,7 @@ for iteration in range(20):
     direction_and_amount = (pred - goal_pred) * input #(pred - goal_pred) = pure error and multiplying it by input scales, reverses the negative, and stopping
     weight = weight - direction_and_amount
 
-    print("Error:" + str(error) +" Prediction:" + str(pred))
+    print("Error:" + str(error) + " Prediction:" + str(pred))
 
 #-----------------------------------------------------------
 
@@ -83,3 +83,19 @@ for iteration in range(4):
     weight = weight - weight_delta
     print("Error:" + str(error) + " Prediction:" + str(pred))
     print("Delta:" + str(delta) + " Weight Delta:" + str(weight_delta))
+
+#-----------------------------------------------------------
+
+#Implementing Alpha to prevent overshooting
+weight = 0.5
+goal_pred = 0.8
+input = 2
+alpha = 0.1
+
+for iteration in range(20):
+    pred = input * weight
+    error = (pred - goal_pred) ** 2
+    derivative = input * (pred - goal_pred)
+    weight = weight - (alpha * derivative)
+
+    print("Error:" + str(error) + " Prediction:" + str(pred))
