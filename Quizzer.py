@@ -12,13 +12,31 @@ class Quizzer:
     question_bank = {}
     answer_bank = {}
 
-    def newQuestionAnswer(self):
-        """ Input question and answer pairs which are stored as a dictionary """
+    def newQuiz(self):
+        """ Create a new quiz. Input question and answer pairs which are stored as a dictionary """
 
+        self.first_name = "None"
+        self.last_name = "None"
+        self.quiz_name = "Untitled"
+        self.description = "No description provided."
         self.question = ""
         self.answer = ""
         self.q = 1
 
+        print("")
+        print("-----New Quiz------")
+        print("")
+        print("Enter your first name: ")
+        self.first_name = input()
+        print("")
+        print("Enter your last name: ")
+        self.last_name = input()
+        print("")
+        print("Enter quiz title: ")
+        self.quiz_name = input()
+        print("")
+        print("Enter quiz description: ")
+        self.description = input()
 
         while True:
             print("")
@@ -62,11 +80,7 @@ class Quizzer:
                 elif self.x == 0:
                     return False
 
-    def quiz(self, first_name, last_name, quiz_name, description='"empty description"'):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.quiz_name = quiz_name
-        self.description = description
+    def startQuiz(self):
 
         print("Quiz Name: " + self.quiz_name)
         print("Description: " + self.description)
@@ -83,6 +97,11 @@ class Quizzer:
                     print("")
                     print("Answer: " + self.answer_bank[j])
 
+    def saveQuiz(self):
+        pass
+
+    def loadQuiz(self):
+        pass
 
     def score(self):
         pass
@@ -90,7 +109,10 @@ class Quizzer:
     def listQA(self):
         pass
 
-class Menu(Quizzer):
+    def quitQuizzer(self):
+        pass
+
+class Start(Quizzer):
     """ Class for menu items and methods. """
 
     def mainMenu(self):
@@ -118,9 +140,9 @@ class Menu(Quizzer):
                 print("Invalid option. Please try again.")
                 continue
             if self.selection == 1:
-                self.newQuestionAnswer()
+                self.newQuiz()
             elif self.selection == 2:
-                print("success")
+                self.startQuiz()
             elif self.selection == 3:
                 print("success")
             elif self.selection == 4:
@@ -130,3 +152,6 @@ class Menu(Quizzer):
 
 
 #---------------Main Program------------------------------------
+
+edward = Start()
+edward.mainMenu()
