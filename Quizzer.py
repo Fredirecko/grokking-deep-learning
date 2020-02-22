@@ -5,10 +5,9 @@
 #At the end of the quiz they will be given a score and can see a list of the questions they answered correctly/incorrectly.
 
 
+
 class Quizzer:
     """ Class for inputting questions and answer pairs for future quizzing. """
-
-    print("Hello! Welcome to Quizzer!")
 
     question_bank = {}
     answer_bank = {}
@@ -37,9 +36,9 @@ class Quizzer:
             self.answer_bank.update(self.new_A)
             self.q += 1
 
-            y = self.anotherQuestion()
+            self.y = self.anotherQuestion()
 
-            if y:
+            if self.y:
                 continue
             else:
                 break
@@ -47,9 +46,10 @@ class Quizzer:
     def anotherQuestion(self):
 
         while True:
-            print("")
-            print("Enter 1 if you have another question to add. Enter 0 if you are done adding questions.")
-
+            print("----------------------------------------------")
+            print( "Enter 1 if you have another question to add.")
+            print(  "Enter 0 if you are done adding questions.")
+            print("----------------------------------------------")
             try:
                 self.x = int(input())
             except ValueError:
@@ -60,6 +60,73 @@ class Quizzer:
                 if self.x == 1:
                     return True
                 elif self.x == 0:
-                    print("")
-                    print("Thank you")
                     return False
+
+    def quiz(self, first_name, last_name, quiz_name, description='"empty description"'):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.quiz_name = quiz_name
+        self.description = description
+
+        print("Quiz Name: " + self.quiz_name)
+        print("Description: " + self.description)
+        print("Name: " + self.first_name + " " + self.last_name)
+        print("")
+
+        for i in self.question_bank:
+            print("Problem: " + self.question_bank[i])
+            print("")
+            print("Enter 1 to show answer")
+            proceed = int(input())
+            if proceed == 1:
+                for j in self.answer_bank:
+                    print("")
+                    print("Answer: " + self.answer_bank[j])
+
+
+    def score(self):
+        pass
+
+    def listQA(self):
+        pass
+
+class Menu(Quizzer):
+    """ Class for menu items and methods. """
+
+    def mainMenu(self):
+        print("*************************************")
+        print("        Welcome to Quizzer!          ")
+        print("*************************************")
+        print("")
+
+        while True:
+            print("")
+            print("------------- MAIN MENU -------------")
+            print("")
+            print("      Enter 1 to create new quiz     ")#new quiz will ask for name, quiz name, quiz description
+            print("      Enter 2 to begin quiz          ") #start quiz
+            print("")
+            print("      Enter 3 to load quiz           ") #load file with saved quiz from txt file
+            print("      Enter 4 to save current quiz   ") #save quiz to txt file
+            print("      Enter 5 to exit                ") # exit program
+            print("")
+            print("-------------------------------------")
+            try:
+                self.selection = int(input())
+            except ValueError:
+                print("")
+                print("Invalid option. Please try again.")
+                continue
+            if self.selection == 1:
+                self.newQuestionAnswer()
+            elif self.selection == 2:
+                print("success")
+            elif self.selection == 3:
+                print("success")
+            elif self.selection == 4:
+                print("success")
+            elif self.selection == 5:
+                break
+
+
+#---------------Main Program------------------------------------
