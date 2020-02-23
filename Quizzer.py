@@ -44,11 +44,15 @@ class Quizzer:
         while True:
             print("")
             print("Enter question number " + str(self.q) + " below.")
+            print("")
+            print("")
             self.question = input()
             self.new_Q = {(self.o): self.question}
 
             print("")
             print("Enter answer for question " + str(self.q) + " below.")
+            print("")
+            print("")
             self.answer = input()
             self.new_A = {(self.o): self.answer}
 
@@ -68,10 +72,14 @@ class Quizzer:
     def anotherQuestion(self):
 
         while True:
+            print("")
+            print("")
             print("----------------------------------------------")
             print( "Enter 1 if you have another question to add.")
             print(  "Enter 0 if you are done adding questions.")
             print("----------------------------------------------")
+            print("")
+            print("")
             try:
                 self.x = int(input())
             except ValueError:
@@ -98,22 +106,16 @@ class Quizzer:
         for i in range(length):
             print("Problem: " + self.question_bank[i])
             print("")
-            print("Enter 1 to show answer.")
+            print("Push enter to see answer.")
             print("")
 
-            try:
-                proceed = int(input())
-            except ValueError:
-                print("")
-                print("Invalid option.")
-                print("Enter 1 to show answer.")
-                print("")
-                continue
-            else:
-                if proceed == 1:
-                    print("")
-                    print("Answer: " + self.answer_bank[i])
-                    print("")
+
+            proceed = input()
+
+
+            print("")
+            print("Answer: " + self.answer_bank[i])
+            print("")
 
     def saveQuiz(self):
         print("")
@@ -121,15 +123,8 @@ class Quizzer:
         fileName = input()
 
         newQuiz = open(fileName, "a")
-        newQuiz.write("test")
+        newQuiz.write("Author: " + self.first_name + self.last_name + "\nQuiz Name: " + self.quiz_name + "\nQuiz Description: " + self.description + "\n" + "\n" + "Questions: " + str(self.question_bank) + "\n" + "Answer: " + str(self.answer_bank))
         newQuiz.close()
-        #newQuiz.write("Quiz Name: " + self.quiz_name "\n Description: " + self.description "\n Created by: " + self.first_name + self.last_name + "\n")
-
-    def loadQuiz(self):
-        pass
-
-    def score(self):
-        pass
 
     def listQA(self):
         pass
@@ -159,8 +154,8 @@ class Start(Quizzer):
             print("      Enter 2 to begin quiz          ") #start quiz
             print("      Enter 3 to save current quiz   ") #save quiz to txt file
             print("")
-            print("      Enter 4 to load quiz           ") #load file with saved quiz from txt file
-            print("      Enter 5 to exit                ") # exit program
+            #print("      Enter 4 to load quiz           ") #load file with saved quiz from txt file
+            print("      Enter 4 to exit                ") # exit program
             print("")
             print("-------------------------------------")
             try:
@@ -179,10 +174,7 @@ class Start(Quizzer):
                 print("**** quiz successfully saved ****")
                 print("")
             elif self.selection == 4:
-                print("success")
-            elif self.selection == 5:
                 break
-
 
 #---------------Main Program------------------------------------
 
