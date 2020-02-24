@@ -13,6 +13,7 @@ class Quizzer:
 
     question_bank = {}
     answer_bank = {}
+    o = 0
 
     def newQuiz(self):
         """ Create a new quiz. Input question and answer pairs which are stored as a dictionary """
@@ -24,7 +25,6 @@ class Quizzer:
         self.question = ""
         self.answer = ""
         self.q = 1
-        self.o = 0
 
         print("")
         print("-----New Quiz------")
@@ -92,6 +92,91 @@ class Quizzer:
                 elif self.x == 0:
                     return False
 
+    def updateQuiz(self):
+
+        if self.o == 0:
+            print("")
+            print("You must create a new quiz before you can update a quiz.")
+            print("")
+        elif self.o != 0:
+            print("")
+            print("-----Update Quiz Details------")
+
+            print("")
+            print(self.first_name)
+            print("")
+            print("Would you like to edit your first name?")
+            print("")
+            self.z = self.updateOption()
+            if self.z:
+                print("")
+                print("Renter your first name: ")
+                self.first_name = input()
+                print("")
+
+
+            print("")
+            print(self.last_name)
+            print("")
+            print("Would you like to edit your last name?")
+            print("")
+            self.z = self.updateOption()
+            if self.z:
+                print("")
+                print("Renter your last name: ")
+                self.last_name = input()
+                print("")
+
+
+            print("")
+            print(self.quiz_name)
+            print("")
+            print("Would you like to edit the quiz name?")
+            print("")
+            self.z = self.updateOption()
+            if self.z:
+                print("")
+                print("Renter the quiz name: ")
+                self.quiz_name = input()
+                print("")
+
+
+            print("")
+            print(self.description)
+            print("")
+            print("Would you like to edit the quiz description?")
+            print("")
+            self.z = self.updateOption()
+            if self.z:
+                print("")
+                print("Renter quiz description: ")
+                self.description = input()
+                print("")
+
+
+    def updateOption(self):
+
+
+        print("")
+        print("")
+        print("----------------------------------------------")
+        print( "Enter 1 for yes.")
+        print(  "Enter 0 if no.")
+        print("----------------------------------------------")
+        print("")
+        print("")
+        try:
+            self.updateInput = input(int())
+        except ValueError:
+            print("")
+            print("Invalid option.")
+            continue
+        else:
+            if self.updateInput == 1:
+                return True
+            elif self.updateInput == 0:
+                return False
+
     def startQuiz(self):
         print("")
         print("")
@@ -109,9 +194,7 @@ class Quizzer:
             print("Push enter to see answer.")
             print("")
 
-
             proceed = input()
-
 
             print("")
             print("Answer: " + self.answer_bank[i])
@@ -123,7 +206,7 @@ class Quizzer:
         fileName = input()
 
         newQuiz = open(fileName, "a")
-        newQuiz.write("Author: " + self.first_name + self.last_name + "\nQuiz Name: " + self.quiz_name + "\nQuiz Description: " + self.description + "\n" + "\n" + "Questions: " + str(self.question_bank) + "\n" + "Answer: " + str(self.answer_bank))
+        newQuiz.write("Author: " + self.first_name + " " + self.last_name + "\nQuiz Name: " + self.quiz_name + "\nQuiz Description: " + self.description + "\n" + "\n" + "Questions: " + str(self.question_bank) + "\n" + "Answer: " + str(self.answer_bank))
         newQuiz.close()
 
     def listQA(self):
@@ -152,10 +235,11 @@ class Start(Quizzer):
             print("")
             print("      Enter 1 to create new quiz     ")#new quiz will ask for name, quiz name, quiz description
             print("      Enter 2 to begin quiz          ") #start quiz
-            print("      Enter 3 to save current quiz   ") #save quiz to txt file
+            print("      Enter 3 to update current quiz          ") #allows you to change details of current quiz or add new questions/answers
+            print("      Enter 4 to save current quiz   ") #save quiz to txt file
             print("")
             #print("      Enter 4 to load quiz           ") #load file with saved quiz from txt file
-            print("      Enter 4 to exit                ") # exit program
+            print("      Enter 5 to exit                ") # exit program
             print("")
             print("-------------------------------------")
             try:
@@ -169,11 +253,13 @@ class Start(Quizzer):
             elif self.selection == 2:
                 self.startQuiz()
             elif self.selection == 3:
+                self.updateQuiz()
+            elif self.selection == 4:
                 self.saveQuiz()
                 print("")
                 print("**** quiz successfully saved ****")
                 print("")
-            elif self.selection == 4:
+            elif self.selection == 5:
                 break
 
 #---------------Main Program------------------------------------
